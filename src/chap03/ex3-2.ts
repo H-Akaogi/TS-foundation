@@ -7,4 +7,9 @@ export function ex32_func(): void {
     console.log(`toString()メソッド: ${value.toString()}`);
     // String()関数を利用する
     console.log(`String()関数: ${String(value)}`);
+
+    //let flag: boolean;
+    //console.log(flag);
+
+    // const scores = [80, 90, 100]; // 型を明示しないで配列を書くこともできる
 }
