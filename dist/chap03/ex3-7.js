@@ -1,9 +1,12 @@
 /*
  * 演習3-7 switch～case文の機能を確認する-①
  */
+// prompt-syncをインポートする
 import promptSync from 'prompt-sync';
+// ユーザー入力を受け取るための準備
 const prompt = promptSync({ sigint: true });
 export function ex37_func() {
+    // キー入力された値を取得する
     const month = prompt("月名(英名)を入力してください->");
     let message = "";
     switch (month) {
@@ -42,6 +45,9 @@ export function ex37_func() {
             break;
         case "December":
             message = "12月です。";
+            break;
+        default:
+            message = "月の名前ではありません。";
             break;
     }
     console.log(message);
