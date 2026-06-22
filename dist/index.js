@@ -3,7 +3,7 @@ import PromptSync from "prompt-sync";
 // ユーザー入力を受け取るための準備(sigint: trueはCtrl+C で終了できるようにする設定）
 const prompt = PromptSync({ sigint: true });
 // chap04フォルダのex4-1.jsから、calcPrice関数を読み込む
-import { calcPrice } from "./chap03/ex4-1.js";
+import { calcPrice } from "./chap04/ex4-2.js";
 // キー入力された値を取得する
 let value = prompt(`金額を入力してください-> `);
 // 文字列を数値に変換する
