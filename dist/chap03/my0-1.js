@@ -1,3 +1,6 @@
+/*
+ * 自習01 3の倍数と5の倍数を分類するプログラム
+ */
 import PromptSync from "prompt-sync";
 const prompt = PromptSync({ sigint: true });
 export function my01_func() {
