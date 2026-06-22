@@ -96,3 +96,45 @@ export function my04_func3(): void {
         console.log(`1から${max}の間に素数は存在しません`);
     }
 }
+/*
+ * 自習04_4 素数判定プログラム（メソッド切り出し版）
+ */
+function isPrimeNumber(num: number): boolean {
+    if (num === 1) {
+        return false;
+    }
+    else {
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+export function my04_func4(): void {
+    const input = prompt(`数字を入力 -> `);
+    const max = Number(input);
+
+    let result: boolean = true;
+    let hasPrime: boolean = false;
+    console.log();
+
+    for (let i = 1; i <= max; i++) {
+        if (i % 20 === 1) {
+            console.log();
+        }
+        if (isPrimeNumber(i)) {
+            process.stdout.write(`${i} `);
+            hasPrime = true;
+        }
+        else {
+            process.stdout.write(`* `);
+        }
+    }
+    console.log();
+    if (hasPrime === false) {
+        console.log(`1から${max}までの間に素数はありません`);
+    }
+}
