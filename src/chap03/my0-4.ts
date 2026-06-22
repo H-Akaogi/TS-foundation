@@ -31,7 +31,7 @@ export function my04_func(): void {
     }
 }
 /*
- * 自習04-1 素数判定プログラム（任意の数まで・if文）
+ * 自習04_2 素数判定プログラム（任意の数まで・if文）
  */
 export function my04_func2(): void {
     const input = prompt(`何まで計算しますか-> `);
