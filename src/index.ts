@@ -1,5 +1,5 @@
 // chap03フォルダのex3-1.jsから、ex31_func関数を読み込む
-import { ex38_func } from './chap03/ex3-8.js';
+import { my01_func } from './chap03/my0-1.js';
 // ex31_func()関数を実行する
-ex38_func();
+my01_func();
 
