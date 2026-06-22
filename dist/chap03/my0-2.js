@@ -1,5 +1,6 @@
 /*
  * 自習02 奇数と偶数を判定するプログラム
+ * 追加：合計と個数も算出する
  */
 import PromptSync from "prompt-sync";
 const prompt = PromptSync({ sigint: true });
