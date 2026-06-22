@@ -97,7 +97,7 @@ export function my04_func3() {
 /*
  * 自習04_4 素数判定プログラム（メソッド切り出し版）
  */
-function isPrimenumber(num) {
+function isPrimeNumber(num) {
     if (num === 1) {
         return false;
     }
@@ -116,12 +116,11 @@ export function my04_func4() {
     let result = true;
     let hasPrime = false;
     console.log();
-    for (let i = 1; i < max; i++) {
+    for (let i = 1; i <= max; i++) {
         if (i % 20 === 1) {
             console.log();
         }
-        result = isPrimenumber(i);
-        if (result === true) {
+        if (isPrimeNumber(i)) {
             process.stdout.write(`${i} `);
             hasPrime = true;
         }
