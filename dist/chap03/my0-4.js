@@ -27,6 +27,9 @@ export function my04_func() {
         }
     }
 }
+/*
+ * 自習04_2 素数判定プログラム（任意の数まで・if文）
+ */
 export function my04_func2() {
     const input = prompt(`何まで計算しますか-> `);
     const max = Number(input);
@@ -50,6 +53,44 @@ export function my04_func2() {
             }
         }
     }
+    if (hasPrime === false) {
+        console.log(`1から${max}の間に素数は存在しません`);
+    }
+}
+/*
+ * 自習04_3 素数判定プログラム（任意の数まで・*表記）
+ */
+export function my04_func3() {
+    const input = prompt(`何まで計算しますか-> `);
+    const max = Number(input);
+    let hasPrime = false;
+    let isPrime = true;
+    for (let i = 1; i <= max; i++) {
+        isPrime = true;
+        if (i === 1) {
+            isPrime = false;
+            process.stdout.write(`* `);
+        }
+        else {
+            if (i % 20 === 1) {
+                console.log();
+            }
+            for (let a = 2; a < i; a++) {
+                if (i % a === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime === true) {
+                process.stdout.write(`${i} `);
+                hasPrime = true;
+            }
+            else {
+                process.stdout.write(`* `);
+            }
+        }
+    }
+    console.log();
     if (hasPrime === false) {
         console.log(`1から${max}の間に素数は存在しません`);
     }
