@@ -29,3 +29,29 @@ export function my03_func2(): void {
     console.log(`1から100までのうち、3の倍数は${count}個です`);
     console.log(`1から100までの3の倍数の平均は${average}です`);
 }
+/*
+ * 自習03_3 指定された数まで3の倍数の合計・個数・平均を算出するプログラム
+ */
+export function my03_func3(): void {
+    const input = prompt(`何まで計算しますか?(数字を入力)`);
+    const max = Number(input);
+
+    let sum = 0;
+    let count = 0;
+
+    for (let i = 1; i <= max; i++) {
+        if (i % 3 === 0) {
+            sum += i;
+            count++;
+        }
+    }
+    const average = sum / count;
+    console.log(`1から${max}までのうち、3の倍数の合計は${sum}です`);
+    console.log(`1から${max}までのうち、3の倍数は${count}個です`);
+
+    if (count > 0) {
+        console.log(`1から${max}までのうち、3の倍数の平均は${average}です`);
+    } else {
+        console.log(`1から${max}のうち、3の倍数はないため平均は計算できません`);
+    }
+}
