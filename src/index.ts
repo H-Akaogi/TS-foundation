@@ -1,5 +1,5 @@
 // フォルダから、関数を読み込む
-import { ex39_func } from './chap03/ex3-9.js';
+import { ex310_func } from './chap03/ex3-10.js';
 // 関数を実行する
-ex39_func();
+ex310_func();
 
