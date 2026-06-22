@@ -44,6 +44,11 @@ export function my03_func3() {
     const average = sum / count;
     console.log(`1から${max}までのうち、3の倍数の合計は${sum}です`);
     console.log(`1から${max}までのうち、3の倍数は${count}個です`);
-    console.log(`1から${max}までのうち、3の倍数の平均は${average}です`);
+    if (count > 0) {
+        console.log(`1から${max}までのうち、3の倍数の平均は${average}です`);
+    }
+    else {
+        console.log(`1から${max}のうち、3の倍数はないため平均は計算できません`);
+    }
 }
 //# sourceMappingURL=my0-3.js.map
