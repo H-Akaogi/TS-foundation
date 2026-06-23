@@ -113,21 +113,30 @@ export const convertNumbers = (numbers: number[], converter: (n: number) => numb
 * 問題：
 名前の配列を受け取り、それぞれの名前を加工して表示する関数を作成してください。
 --------------------------------
-* 条件：
-第1引数 names は string[]
-第2引数 formatter はコールバック関数
-formatter は文字列を受け取り、文字列を返す
-for...of を使う
---------------------------------
 * 期待される実行例：
 showFormattedNames(["tanaka", "suzuki"], name => name.toUpperCase());
 // TANAKA
 // SUZUKI
-
 showFormattedNames(["tanaka", "suzuki"], name => `${name}さん`);
 // tanakaさん
 // suzukiさん
 */
+/**
+ * 条件：
+ * @param names string[]
+ * @param formatter コールバック関数
+ * formatter は文字列を受け取り、文字列を返す
+ * for...of を使う
+ */
+export const showFormattedNames = (names: string[], formatter: (name: string) => string): void => {
+    const results: string[] = [];
+    let index = 0;
+    for (const name of names) {
+        results[index] = formatter(name);
+        console.log(results[index]);
+        index++;
+    }
+}
 
 /*
 自習05_6：条件に合う文字列だけ表示する

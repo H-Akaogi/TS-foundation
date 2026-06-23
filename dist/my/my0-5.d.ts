@@ -22,5 +22,13 @@ export declare const showFilteredScores: (scores: number[], filterFunc: (score: 
  * @returns クーポンがある場合は、商品価格に値引きを適用してから送料を足す
  */
 export declare function calcTotal(price: number, shoppingFee?: number, couponRate?: number): number;
+/**
+ * 条件：
+ * @param numbers number[]
+ * @param converter コールバック関数
+ * @returns converter は数値を受け取り、数値を返す
+ * map を使わず、for...of で書く
+ */
 export declare const convertNumbers: (numbers: number[], converter: (n: number) => number) => number[];
+export declare const showFormattedNames: (names: string[], formatter: (name: string) => string) => void;
 //# sourceMappingURL=my0-5.d.ts.map
