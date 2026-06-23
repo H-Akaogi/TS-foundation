@@ -1,5 +1,4 @@
-import { calculate } from "./chap04/ex4-5.js";
+import { showMessage } from "./my/my0-5.js";
 
-calculate(10, 20, (result: number) => {
-    console.log(`🧮 計算結果は ${result} です！`);
-});
+showMessage("hello", text => text.toUpperCase());
+showMessage("hello", text => `*** ${text} ***`);

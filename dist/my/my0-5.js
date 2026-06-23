@@ -1,26 +1,27 @@
 /*
 自習05_1：メッセージを加工して表示する
--------------------------------
-* 問題：文字列を受け取り、加工して表示する関数を作成してください。
--------------------------------
+
+* 問題
+文字列を受け取り、加工して表示する関数を作成してください。
+
 * 条件：
 第1引数 message は必須
 第2引数 formatter はコールバック関数
 formatter は文字列を受け取り、文字列を返す
 formatter を使って加工した結果を console.log する
---------------------------------
+*/
+/*
 * 期待される実行例
 showMessage("hello", text => text.toUpperCase());
 // HELLO
+
 showMessage("hello", text => `*** ${text} ***`);
 // *** hello ***
 */
-// export function...ではないので注意(constを用いて、=を使う)
-export const showMessage = (message: string, formatter: (text: string) => string): void => {
+export const showMessage = (message, formatter) => {
     const formattedMessage = formatter(message);
     console.log(formattedMessage);
-}
-
+};
 /*
 自習05_2：点数一覧を処理する
 問題
@@ -41,7 +42,6 @@ showFilteredScores([80, 45, 90, 60], score => score >= 60);
 // 90
 // 60
 */
-
 /*
 自習05_3：配送料を計算する
 問題
@@ -61,7 +61,6 @@ console.log(calcTotal(3000));           // 3500
 console.log(calcTotal(3000, 500, 0.1)); // 3200
 console.log(calcTotal(3000, 0));        // 3000
 */
-
 /*
 自習05_4：配列の中身を変換する
 問題
@@ -81,4 +80,5 @@ console.log(convertNumbers([1, 2, 3], n => n * 2));
 // [2, 4, 6]
 console.log(convertNumbers([1, 2, 3], n => n + 10));
 // [11, 12, 13]
-*/
+*/ 
+//# sourceMappingURL=my0-5.js.map
