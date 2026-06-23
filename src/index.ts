@@ -1,14 +1,18 @@
-import { Character } from "./chap05/Character.js";
-/**
- * インスタンスの生成例
- */
-// 1. 勇者という「実体」を作る
-const hero = new Character("勇者", 100);
+// chap05フォルダのProduct.jsから、Productクラスを読み込む
+import { Product } from './chap05/Product.js';
+// prompt-syncをインポートする
+import promptSync from 'prompt-sync';
+// ユーザー入力を受け取るための準備(sigint: trueはCtrl+C で終了できるようにする設定）
+const prompt = promptSync({ sigint: true });
 
-// 2. 魔王という「別の実体」を作る
-const boss = new Character("魔王", 500);
+// キー入力された値を取得する
+const id: string = prompt("商品Idを入力してください->");
+// キー入力された値を取得する
+const name: string = prompt("商品名を入力してください->");
+// キー入力された値を取得する
+const price: string = prompt("単価を入力してください->");
 
-// それぞれ独立しているので、片方のHPが減っても、もう片方には影響しない
-hero.takeDamage(20);
-console.log(hero.hp); // 80
-console.log(boss.hp); // 500 (魔王は無傷！)
+// 商品を表すクラスのインスタンスを生成する
+const product = new Product(id, name, parseInt(price));
+// print()メソッドを実行する
+product.print();
