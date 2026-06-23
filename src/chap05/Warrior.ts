@@ -16,5 +16,9 @@ export class Warrior extends Character {
         // 子クラス独自の初期化を行う
         this._weapon = weapon;
     }
+
+    public override attack(): void {
+        console.log(`${this._weapon}を使って攻撃した！`);
+    }
 }
 
