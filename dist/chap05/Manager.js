@@ -14,7 +14,7 @@ export class Manager extends Employee {
      * @param managerAllowance 役職手当
      */
     constructor(id, name, baseSalary, managerAllowance) {
-        // 継承元クラスのコンストラクタを実行する
+        // 継承元クラスのコンストラクタを実行する(C#のbaseと同じ)
         super(id, name, baseSalary);
         // 役職手当を設定する
         this._managerAllowance = managerAllowance;
