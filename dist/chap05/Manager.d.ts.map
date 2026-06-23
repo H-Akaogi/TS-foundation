@@ -1,0 +1,1 @@
+{"version":3,"file":"Manager.d.ts","sourceRoot":"","sources":["../../src/chap05/Manager.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,eAAe,CAAC;AAEzC;;;GAGG;AACH,qBAAa,OAAQ,SAAQ,QAAQ;IAEjC,OAAO,CAAC,iBAAiB,CAAS;IAElC;;;;;;OAMG;gBACS,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,UAAU,EAAE,MAAM,EAAE,gBAAgB,EAAE,MAAM;IAOlF;;;OAGG;IACa,eAAe,IAAI,MAAM;CAG5C"}

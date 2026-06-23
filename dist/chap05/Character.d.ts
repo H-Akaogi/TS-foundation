@@ -57,5 +57,9 @@ export declare class Character {
      * @param damage ダメージ
      */
     takeDamage(damage: number): void;
+    /**
+     * 攻撃をするメソッド
+     */
+    attack(): void;
 }
 //# sourceMappingURL=Character.d.ts.map

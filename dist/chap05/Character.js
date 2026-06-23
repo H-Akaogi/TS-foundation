@@ -84,5 +84,11 @@ export class Character {
             this._hp = 0;
         console.log(`${this._name}は${damage}のダメージを受けた！`);
     }
+    /**
+     * 攻撃をするメソッド
+     */
+    attack() {
+        console.log("素手でパンチした！");
+    }
 }
 //# sourceMappingURL=Character.js.map

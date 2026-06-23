@@ -4,9 +4,13 @@
  */
 /**
  * 商品を表すクラス
- * プロパティはprivateにする
  */
 export declare class Product {
+    /**
+     * 内部保持用
+     * privateにする
+     * プロパティ名には_を付ける
+     */
     private _id;
     private _name;
     private _price;
@@ -18,13 +22,13 @@ export declare class Product {
      */
     constructor(id: string, name: string, price: number);
     /**
-     * Getter
+     * Getter(取得用)
      */
     get id(): string;
     get name(): string;
     get price(): number;
     /**
-     * Setter
+     * Setter(変更用)
      */
     set id(value: string);
     set name(value: string);
