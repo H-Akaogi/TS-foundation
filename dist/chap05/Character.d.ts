@@ -10,5 +10,11 @@ export declare class Character {
     readonly name: string;
     hp: number;
     skills: string[];
+    /**
+     * コンストラクタ
+     * @param name 名前
+     * @param hp 体力
+     */
+    constructor(name: string, hp: number);
 }
 //# sourceMappingURL=Character.d.ts.map

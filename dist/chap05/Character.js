@@ -13,5 +13,14 @@ export class Character {
     hp = 100;
     // 技の一覧を表すプロパティ
     skills = [];
+    /**
+     * コンストラクタ
+     * @param name 名前
+     * @param hp 体力
+     */
+    constructor(name, hp) {
+        this.name = name;
+        this.hp = hp;
+    }
 }
 //# sourceMappingURL=Character.js.map

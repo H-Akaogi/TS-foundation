@@ -13,4 +13,14 @@ export class Character {
     hp: number = 100;
     // 技の一覧を表すプロパティ
     skills: string[] = [];
+
+    /**
+     * コンストラクタ
+     * @param name 名前
+     * @param hp 体力
+     */
+    constructor(name: string, hp: number) {
+        this.name = name;
+        this.hp = hp;
+    }
 }
