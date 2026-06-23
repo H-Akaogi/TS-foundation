@@ -1,4 +1,3 @@
-import { showMessage } from "./my/my0-5.js";
-showMessage("hello", text => text.toUpperCase());
-showMessage("hello", text => `*** ${text} ***`);
+import { showFilteredScores } from "./my/my0-5.js";
+showFilteredScores([80, 45, 90, 60], score => score >= 60);
 //# sourceMappingURL=index.js.map

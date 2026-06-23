@@ -1,47 +1,50 @@
 /*
 自習05_1：メッセージを加工して表示する
-
-* 問題
-文字列を受け取り、加工して表示する関数を作成してください。
-
+-------------------------------
+* 問題：文字列を受け取り、加工して表示する関数を作成してください。
+-------------------------------
 * 条件：
 第1引数 message は必須
 第2引数 formatter はコールバック関数
 formatter は文字列を受け取り、文字列を返す
 formatter を使って加工した結果を console.log する
-*/
-/*
+--------------------------------
 * 期待される実行例
 showMessage("hello", text => text.toUpperCase());
 // HELLO
-
 showMessage("hello", text => `*** ${text} ***`);
 // *** hello ***
 */
+// export function...ではないので注意(constを用いて、=を使う)
 export const showMessage = (message, formatter) => {
     const formattedMessage = formatter(message);
     console.log(formattedMessage);
 };
 /*
 自習05_2：点数一覧を処理する
-問題
-
-点数の配列を受け取り、条件に合う点数だけを表示する関数を作成してください。
-
-条件：
-
+--------------------------------
+* 問題：点数の配列を受け取り、条件に合う点数だけを表示する関数を作成してください。
+--------------------------------
+* 条件：
 第1引数 scores は number[]
 第2引数 filterFunc はコールバック関数
 filterFunc は点数を受け取り、true または false を返す
 filterFunc が true を返した点数だけ表示する
-*/
-/*
+--------------------------------
 期待される実行例
 showFilteredScores([80, 45, 90, 60], score => score >= 60);
 // 80
 // 90
 // 60
 */
+export const showFilteredScores = (scores, filterFunc) => {
+    for (const score of scores) // 配列の中身を取り出すときはfor...of
+     {
+        if (filterFunc(score)) {
+            console.log(score);
+        }
+    }
+};
 /*
 自習05_3：配送料を計算する
 問題
