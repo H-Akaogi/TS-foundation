@@ -8,6 +8,7 @@
  * @param discountRate 値引き率(オプション引数) 
  * @returns 値引き後単価
  * ?を付けるとオプション引数になる
+ * オプション引数は、最後に記述するのが基本
  */
 export function calcPrice(price: number, discountRate?: number): number // 最後のnumberは戻り値の型
 {
