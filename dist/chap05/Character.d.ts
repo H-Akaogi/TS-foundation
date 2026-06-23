@@ -18,9 +18,28 @@ console.log(hero.hp); // 80
 console.log(boss.hp); // 500 (魔王は無傷！)
  */
 export declare class Character {
-    readonly name: string;
-    hp: number;
-    skills: string[];
+    /**
+     * 内部保持用の変数名は慣習に従い「_」を付ける
+     */
+    private _name;
+    private _hp;
+    private _skills;
+    /**
+     * _nameのゲッター
+     */
+    get name(): string;
+    /**
+     * _hpのゲッター
+     */
+    get hp(): number;
+    /**
+     * _hpのセッター
+     */
+    set hp(value: number);
+    /**
+     * _skillsのゲッター
+     */
+    get skills(): string[];
     /**
      * コンストラクタ
      * @param name 名前

@@ -1,13 +1,15 @@
 /**
  * 演習5-1 クラスを作成して利用する
+ * 演習5-2 GetterとSetterを利用する
  */
 /**
  * 商品を表すクラス
+ * プロパティはprivateにする
  */
 export declare class Product {
-    id: string;
-    name: string;
-    price: number;
+    private _id;
+    private _name;
+    private _price;
     /**
      * コンストラクタ
      * @param id 商品Id
@@ -15,6 +17,18 @@ export declare class Product {
      * @param price 単価
      */
     constructor(id: string, name: string, price: number);
+    /**
+     * Getter
+     */
+    get id(): string;
+    get name(): string;
+    get price(): number;
+    /**
+     * Setter
+     */
+    set id(value: string);
+    set name(value: string);
+    set price(value: number);
     /**
      * 商品の詳細を表示するメソッド
      */

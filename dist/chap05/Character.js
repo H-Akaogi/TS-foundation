@@ -18,27 +18,60 @@ console.log(hero.hp); // 80
 console.log(boss.hp); // 500 (魔王は無傷！)
  */
 export class Character {
+    /**
+     * 内部保持用の変数名は慣習に従い「_」を付ける
+     */
     // 名前を表すプロパティ(読み取り専用)
-    name = "名無し";
+    _name = "名無し";
     // 体力を表すプロパティ
-    hp = 100;
+    _hp = 100;
     // 技の一覧を表すプロパティ
-    skills = [];
+    _skills = [];
+    /**
+     * _nameのゲッター
+     */
+    get name() {
+        return this._name;
+    }
+    /**
+     * _hpのゲッター
+     */
+    get hp() {
+        return this._hp;
+    }
+    /**
+     * _hpのセッター
+     */
+    set hp(value) {
+        // セッターの中で値のチェックを行う
+        if (value < 0) {
+            this._hp = 0;
+        }
+        else {
+            this.hp = value;
+        }
+    }
+    /**
+     * _skillsのゲッター
+     */
+    get skills() {
+        return this._skills;
+    }
     /**
      * コンストラクタ
      * @param name 名前
      * @param hp 体力
      */
     constructor(name, hp) {
-        this.name = name;
-        this.hp = hp;
+        this._name = name;
+        this._hp = hp;
     }
     /**
      * 自己紹介をするメソッド
      * functionキーワードはつけない
      */
     introduce() {
-        console.log(`私は${this.name}。体力は残り${this.hp}です。`);
+        console.log(`私は${this._name}。体力は残り${this._hp}です。`);
     }
     /**
      * ダメージを受けるメソッド
@@ -46,10 +79,10 @@ export class Character {
      * @param damage ダメージ
      */
     takeDamage(damage) {
-        this.hp -= damage; // 自分のHPを減らす
-        if (this.hp < 0)
-            this.hp = 0;
-        console.log(`${this.name}は${damage}のダメージを受けた！`);
+        this._hp -= damage; // 自分のHPを減らす
+        if (this._hp < 0)
+            this._hp = 0;
+        console.log(`${this._name}は${damage}のダメージを受けた！`);
     }
 }
 //# sourceMappingURL=Character.js.map
