@@ -46,5 +46,12 @@ export declare const showFormattedNames: (names: string[], formatter: (name: str
  * filterFunc が true を返した文字列だけ console.log する
  */
 export declare const showFilteredWords: (words: string[], filterFunc: (word: string) => boolean) => void;
+/**
+ * 条件：
+ * @param numbers number[]
+ * @param converter コールバック関数
+ * @returns converter は数値を受け取り、数値を返す
+ * for...of を使う.戻り値は number
+ */
 export declare const sumConvertedNumbers: (numbers: number[], converter: (n: number) => number) => number;
 //# sourceMappingURL=my0-5.d.ts.map
