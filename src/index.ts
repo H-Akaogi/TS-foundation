@@ -17,7 +17,8 @@ try {
     const user = new User(id, lastName, firstName, email, age, roleInput as UserRole);
     console.log(user);
 
-} catch (error) {
+} catch (error) // Exceptionではなくerrorという表現
+{
     if (error instanceof ValidationError) {
         console.error(`バリデーションエラー: ${error.message}`);
     } else {

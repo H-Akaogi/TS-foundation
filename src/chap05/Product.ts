@@ -1,8 +1,10 @@
 /**
  * 演習5-1 クラスを作成して利用する
  * 演習5-2 GetterとSetterを利用する
+ * 自習：stock、ValidationError,
+ * 税込み価格メソッド、商品変更メソッドを追加
  */
-
+import { ValidationError } from "./ValidationError.js";
 /**
  * 商品を表すクラス
  */
@@ -13,11 +15,13 @@ export class Product {
      * プロパティ名には_を付ける
      */
     // 商品Idプロパティ
-    private _id: string;
+    private readonly _id: string;
     // 商品名プロパティ
-    private _name: string;
+    private _name: string = "";
     // 単価プロパティ
-    private _price: number;
+    private _price: number = 0;
+    // 在庫プロパティ
+    private _stock: number = 0;
 
     /**
      * コンストラクタ
@@ -25,10 +29,12 @@ export class Product {
      * @param name 商品名
      * @param price 単価
      */
-    constructor(id: string, name: string, price: number) {
+    constructor(id: string, name: string, price: number, stock: number) {
+        if (!id) throw new ValidationError("Idは必須です");
         this._id = id;
-        this._name = name;
-        this._price = price;
+        this.updateName(name);
+        this.updatePrice(price);
+        this.updateStock(stock);
     }
 
     /**
@@ -43,38 +49,65 @@ export class Product {
     get price(): number {
         return this._price;
     }
+    get stock(): number {
+        return this._stock;
+    }
 
     /**
      * Setter(変更用)
      */
-    set id(value: string) {
-        if (value.length === 0) {
-            console.error("商品Idを設定してください。");
-            return;
-        }
-        this._id = value;
-    }
     set name(value: string) {
-        if (value.length === 0) {
-            console.error("商品名を設定してください。");
-            return;
-        }
-        this._name = value;
+        this.updateName(value);
     }
     set price(value: number) {
-        if (value < 0) {
-            console.error("単価に負の値を設定することはできません。");
-        } else {
-            this._price = value;
-        }
+        this.updatePrice(value);
+    }
+    set stock(value: number) {
+        this.updateStock(value);
+    }
+
+
+    /**
+     * 商品名の変更メソッド
+     * @param name 商品名
+     */
+    private updateName(name: string): void {
+        if (!name) throw new ValidationError("商品名は必須です");
+        this._name = name;
+    }
+
+    /**
+     * 単価の変更メソッド
+     * @param price 単価
+     */
+    private updatePrice(price: number): void {
+        if (price < 0) throw new ValidationError("単価は0円以上で設定してください");
+        this._price = price;
+    }
+
+    /**
+     * 在庫数の変更メソッド
+     * @param stock 在庫数
+     */
+    private updateStock(stock: number): void {
+        if (stock < 0) throw new ValidationError("在庫数は0個以上で設定してください");
+        this._stock = stock;
+    }
+
+    /**
+     * 税込み価格を返すgetter
+     */
+    public get taxIncludedPrice(): number {
+        return this._price * 1.10
     }
 
     /**
      * 商品の詳細を表示するメソッド
      */
+    public toString(): string {
+        return `[商品Id: ${this.id}] ${this.name} - 価格: ${this.price}円 / 在庫: ${this.stock}個`;
+    }
     print(): void {
-        console.log(`商品Id: ${this.id}`);
-        console.log(`商品名: ${this.name}`);
-        console.log(`単価: ${this.price}`);
+        console.log(this.toString());
     }
 }
