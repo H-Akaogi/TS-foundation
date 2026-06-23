@@ -1,0 +1,1 @@
+{"version":3,"file":"FailureResult.js","sourceRoot":"","sources":["../../src/chap05/FailureResult.ts"],"names":[],"mappings":"AACA;;;GAGG;AACH,MAAM,OAAO,aAAa;IACtB,mBAAmB;IACX,QAAQ,CAAS;IAEzB;;;OAGG;IACH,YAAY,OAAe;QACvB,IAAI,CAAC,QAAQ,GAAG,OAAO,CAAC;IAC5B,CAAC;IAED;;OAEG;IACI,OAAO;QACV,OAAO,CAAC,GAAG,CAAC,UAAU,IAAI,CAAC,QAAQ,EAAE,CAAC,CAAC;IAC3C,CAAC;CACJ"}

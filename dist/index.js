@@ -1,19 +1,10 @@
-import { EmailService } from "./chap05/EmailService.js";
-import { SmsService } from "./chap05/SmsService.js";
-/**
- * 通知を実行する共通関数
- * 引数の型を「Sendable」にすることで、メールかSMSかを気にせず「送る」ことができる
- */
-function notify(target, msg) {
-    console.log("--- システム通知を開始します ---");
-    target.send(msg); // ここがインターフェース（多態性）の真骨頂！
+import { FailureResult } from "./chap05/FailureResult.js";
+import { SuccessResult } from "./chap05/SuccessResult.js";
+function processResponse(response) {
+    response.display(); // ポリモーフィズム：インスタンスによって動きが変わる
 }
-const myEmail = new EmailService("tanaka@example.com");
-const mySms = new SmsService("090-1234-5678");
-// メールで通知
-notify(myEmail, "サーバーが再起動されました。");
-myEmail.showLog(); // EmailServiceはログ機能も持っている
-console.log("--------------------------------");
-// SMSで通知
-notify(mySms, "緊急：ログイン試行を検知しました。");
+const res1 = new SuccessResult("田中 太郎");
+const res2 = new FailureResult("認証失敗");
+processResponse(res1);
+processResponse(res2);
 //# sourceMappingURL=index.js.map

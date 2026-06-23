@@ -1,0 +1,1 @@
+{"version":3,"file":"FailureResult.d.ts","sourceRoot":"","sources":["../../src/chap05/FailureResult.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,kBAAkB,CAAC;AACpD;;;GAGG;AACH,qBAAa,aAAc,YAAW,WAAW;IAE7C,OAAO,CAAC,QAAQ,CAAS;IAEzB;;;OAGG;gBACS,OAAO,EAAE,MAAM;IAI3B;;OAEG;IACI,OAAO,IAAI,IAAI;CAGzB"}

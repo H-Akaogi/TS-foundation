@@ -1,24 +1,15 @@
-import { EmailService } from "./chap05/EmailService.js";
-import type { Sendable } from "./chap05/Sendable.js";
-import { SmsService } from "./chap05/SmsService.js";
+import { FailureResult } from "./chap05/FailureResult.js";
+import { SuccessResult } from "./chap05/SuccessResult.js";
 
-/**
- * 通知を実行する共通関数
- * 引数の型を「Sendable」にすることで、メールかSMSかを気にせず「送る」ことができる
- */
-function notify(target: Sendable, msg: string): void {
-    console.log("--- システム通知を開始します ---");
-    target.send(msg); // ここがインターフェース（多態性）の真骨頂！
+// クラスのインスタンスをUnion型でまとめる
+type ResponseResult = SuccessResult | FailureResult;
+
+function processResponse(response: ResponseResult): void {
+    response.display(); // ポリモーフィズム：インスタンスによって動きが変わる
 }
 
-const myEmail = new EmailService("tanaka@example.com");
-const mySms = new SmsService("090-1234-5678");
+const res1: ResponseResult = new SuccessResult("田中 太郎");
+const res2: ResponseResult = new FailureResult("認証失敗");
 
-// メールで通知
-notify(myEmail, "サーバーが再起動されました。");
-myEmail.showLog(); // EmailServiceはログ機能も持っている
-
-console.log("--------------------------------");
-
-// SMSで通知
-notify(mySms, "緊急：ログイン試行を検知しました。");
+processResponse(res1);
+processResponse(res2);

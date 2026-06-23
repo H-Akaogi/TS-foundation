@@ -1,0 +1,1 @@
+{"version":3,"file":"SuccessResult.js","sourceRoot":"","sources":["../../src/chap05/SuccessResult.ts"],"names":[],"mappings":"AAEA;;;GAGG;AACH,MAAM,OAAO,aAAa;IACtB,mBAAmB;IACX,KAAK,CAAS;IAEtB;;;OAGG;IACH,YAAY,IAAY;QACpB,IAAI,CAAC,KAAK,GAAG,IAAI,CAAC;IACtB,CAAC;IAED;;OAEG;IACI,OAAO;QACV,OAAO,CAAC,GAAG,CAAC,QAAQ,IAAI,CAAC,KAAK,EAAE,CAAC,CAAC;IACtC,CAAC;CACJ"}
