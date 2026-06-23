@@ -47,23 +47,28 @@ export const showFilteredScores = (scores, filterFunc) => {
 };
 /*
 自習05_3：配送料を計算する
-問題
-
-購入金額から、配送料込みの合計金額を計算する関数を作成してください。
-
-条件：
-
+--------------------------------
+* 問題：購入金額から、配送料込みの合計金額を計算する関数を作成してください。
+--------------------------------
+* 条件：
 price は必須引数
 shippingFee はデフォルト引数で 500
 couponRate はオプション引数
 クーポンがある場合は、商品価格に値引きを適用してから送料を足す
-*/
-/*
-期待される実行例
+--------------------------------
+* 期待される実行例
 console.log(calcTotal(3000));           // 3500
 console.log(calcTotal(3000, 500, 0.1)); // 3200
 console.log(calcTotal(3000, 0));        // 3000
 */
+export function calcTotal(price, shoppingFee = 500, couponRate) {
+    if (couponRate === undefined) {
+        return price + shoppingFee;
+    }
+    else {
+        return (price + shoppingFee) * couponRate;
+    }
+}
 /*
 自習05_4：配列の中身を変換する
 問題
