@@ -108,21 +108,21 @@ export const convertNumbers = (numbers, converter) => {
 * 問題：
 名前の配列を受け取り、それぞれの名前を加工して表示する関数を作成してください。
 --------------------------------
-* 条件：
-第1引数 names は string[]
-第2引数 formatter はコールバック関数
-formatter は文字列を受け取り、文字列を返す
-for...of を使う
---------------------------------
 * 期待される実行例：
 showFormattedNames(["tanaka", "suzuki"], name => name.toUpperCase());
 // TANAKA
 // SUZUKI
-
 showFormattedNames(["tanaka", "suzuki"], name => `${name}さん`);
 // tanakaさん
 // suzukiさん
 */
+/**
+ * 条件：
+ * @param names string[]
+ * @param formatter コールバック関数
+ * formatter は文字列を受け取り、文字列を返す
+ * for...of を使う
+ */
 export const showFormattedNames = (names, formatter) => {
     const results = [];
     let index = 0;
@@ -154,6 +154,14 @@ showFilteredWords(["apple", "banana", "cat"], word => word.includes("a"));
 // banana
 // cat
 */
+export const showFilteredWords = (words, filterFunc) => {
+    for (const word of words) {
+        filterFunc(word);
+        if (filterFunc(word)) {
+            console.log(word);
+        }
+    }
+};
 /*
 自習05_7：数値を変換して合計する
 --------------------------------

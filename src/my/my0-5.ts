@@ -144,23 +144,30 @@ export const showFormattedNames = (names: string[], formatter: (name: string) =>
 * 問題：
 文字列の配列を受け取り、条件に合う文字列だけを表示する関数を作成してください。
 --------------------------------
-* 条件：
-第1引数 words は string[]
-第2引数 filterFunc はコールバック関数
-filterFunc は文字列を受け取り、boolean を返す
-filterFunc が true を返した文字列だけ console.log する
---------------------------------
 * 期待される実行例：
 showFilteredWords(["apple", "banana", "cat"], word => word.length >= 5);
 // apple
 // banana
-
 showFilteredWords(["apple", "banana", "cat"], word => word.includes("a"));
 // apple
 // banana
 // cat
 */
-
+/**
+ * 条件：
+ * @param words string[]
+ * @param filterFunc コールバック関数
+ * filterFunc は文字列を受け取り、boolean を返す
+ * filterFunc が true を返した文字列だけ console.log する
+ */
+export const showFilteredWords = (words: string[], filterFunc: (word: string) => boolean): void => {
+    for (const word of words) {
+        filterFunc(word);
+        if (filterFunc(word)) {
+            console.log(word);
+        }
+    }
+}
 /*
 自習05_7：数値を変換して合計する
 --------------------------------
