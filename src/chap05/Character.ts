@@ -18,12 +18,48 @@ console.log(hero.hp); // 80
 console.log(boss.hp); // 500 (魔王は無傷！)
  */
 export class Character {
+    /**
+     * 内部保持用の変数名は慣習に従い「_」を付ける
+     */
     // 名前を表すプロパティ(読み取り専用)
-    readonly name: string = "名無し";
+    private _name: string = "名無し";
     // 体力を表すプロパティ
-    hp: number = 100;
+    private _hp: number = 100;
     // 技の一覧を表すプロパティ
-    skills: string[] = [];
+    private _skills: string[] = [];
+
+    /**
+     * _nameのゲッター
+     */
+    get name(): string {
+        return this._name;
+    }
+
+    /**
+     * _hpのゲッター
+     */
+    get hp(): number {
+        return this._hp;
+    }
+
+    /**
+     * _hpのセッター
+     */
+    set hp(value: number) {
+        // セッターの中で値のチェックを行う
+        if (value < 0) {
+            this._hp = 0;
+        } else {
+            this.hp = value;
+        }
+    }
+
+    /**
+     * _skillsのゲッター
+     */
+    get skills(): string[] {
+        return this._skills;
+    }
 
     /**
      * コンストラクタ
@@ -31,8 +67,8 @@ export class Character {
      * @param hp 体力
      */
     constructor(name: string, hp: number) {
-        this.name = name;
-        this.hp = hp;
+        this._name = name;
+        this._hp = hp;
     }
 
     /**
@@ -40,7 +76,7 @@ export class Character {
      * functionキーワードはつけない
      */
     introduce(): void {
-        console.log(`私は${this.name}。体力は残り${this.hp}です。`);
+        console.log(`私は${this._name}。体力は残り${this._hp}です。`);
     }
 
     /**
@@ -49,8 +85,8 @@ export class Character {
      * @param damage ダメージ
      */
     takeDamage(damage: number): void {
-        this.hp -= damage; // 自分のHPを減らす
-        if (this.hp < 0) this.hp = 0;
-        console.log(`${this.name}は${damage}のダメージを受けた！`);
+        this._hp -= damage; // 自分のHPを減らす
+        if (this._hp < 0) this._hp = 0;
+        console.log(`${this._name}は${damage}のダメージを受けた！`);
     }
 }
