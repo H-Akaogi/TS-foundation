@@ -138,22 +138,22 @@ export const showFormattedNames = (names, formatter) => {
 * 問題：
 文字列の配列を受け取り、条件に合う文字列だけを表示する関数を作成してください。
 --------------------------------
-* 条件：
-第1引数 words は string[]
-第2引数 filterFunc はコールバック関数
-filterFunc は文字列を受け取り、boolean を返す
-filterFunc が true を返した文字列だけ console.log する
---------------------------------
 * 期待される実行例：
 showFilteredWords(["apple", "banana", "cat"], word => word.length >= 5);
 // apple
 // banana
-
 showFilteredWords(["apple", "banana", "cat"], word => word.includes("a"));
 // apple
 // banana
 // cat
 */
+/**
+ * 条件：
+ * @param words string[]
+ * @param filterFunc コールバック関数
+ * filterFunc は文字列を受け取り、boolean を返す
+ * filterFunc が true を返した文字列だけ console.log する
+ */
 export const showFilteredWords = (words, filterFunc) => {
     for (const word of words) {
         filterFunc(word);
@@ -176,12 +176,16 @@ for...of を使う
 戻り値は number
 --------------------------------
 * 期待される実行例：
-console.log(sumConvertedNumbers([1, 2, 3], n => n * 2));
-// 12
-
-console.log(sumConvertedNumbers([1, 2, 3], n => n + 10));
-// 36
+console.log(sumConvertedNumbers([1, 2, 3], n => n * 2));// 12
+console.log(sumConvertedNumbers([1, 2, 3], n => n + 10));// 36
 */
+export const sumConvertedNumbers = (numbers, converter) => {
+    let result = 0;
+    for (const number of numbers) {
+        result += converter(number);
+    }
+    return result;
+};
 /*
 自習05_8：税込価格の一覧を作る
 --------------------------------

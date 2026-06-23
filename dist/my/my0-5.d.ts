@@ -38,5 +38,13 @@ export declare const convertNumbers: (numbers: number[], converter: (n: number) 
  * for...of を使う
  */
 export declare const showFormattedNames: (names: string[], formatter: (name: string) => string) => void;
+/**
+ * 条件：
+ * @param words string[]
+ * @param filterFunc コールバック関数
+ * filterFunc は文字列を受け取り、boolean を返す
+ * filterFunc が true を返した文字列だけ console.log する
+ */
 export declare const showFilteredWords: (words: string[], filterFunc: (word: string) => boolean) => void;
+export declare const sumConvertedNumbers: (numbers: number[], converter: (n: number) => number) => number;
 //# sourceMappingURL=my0-5.d.ts.map

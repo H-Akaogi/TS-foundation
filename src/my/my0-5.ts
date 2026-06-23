@@ -168,26 +168,31 @@ export const showFilteredWords = (words: string[], filterFunc: (word: string) =>
         }
     }
 }
+
 /*
 自習05_7：数値を変換して合計する
 --------------------------------
 * 問題：
 数値の配列を受け取り、それぞれの値を変換してから、合計値を返す関数を作成してください。
 --------------------------------
-* 条件：
-第1引数 numbers は number[]
-第2引数 converter はコールバック関数
-converter は数値を受け取り、数値を返す
-for...of を使う
-戻り値は number
---------------------------------
 * 期待される実行例：
-console.log(sumConvertedNumbers([1, 2, 3], n => n * 2));
-// 12
-
-console.log(sumConvertedNumbers([1, 2, 3], n => n + 10));
-// 36
+console.log(sumConvertedNumbers([1, 2, 3], n => n * 2));// 12
+console.log(sumConvertedNumbers([1, 2, 3], n => n + 10));// 36
 */
+/**
+ * 条件：
+ * @param numbers number[]
+ * @param converter コールバック関数
+ * @returns converter は数値を受け取り、数値を返す
+ * for...of を使う.戻り値は number
+ */
+export const sumConvertedNumbers = (numbers: number[], converter: (n: number) => number): number => {
+    let result: number = 0;
+    for (const number of numbers) {
+        result += converter(number);
+    }
+    return result;
+}
 
 /*
 自習05_8：税込価格の一覧を作る
