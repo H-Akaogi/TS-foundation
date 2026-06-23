@@ -46,6 +46,13 @@ export class User {
      * @param email メールアドレス
      */
     updateEmail(email) {
+        /**　⭐/^[^\s@]+@[^\s@]+\.[^\s@]+$/について
+         * /.../正規表現の記号
+         * ^文字列の先頭
+         * [^\s@]+空白でも@でもない文字が1文字以上ある
+         * \. 普通のドット.
+         * $文字列の終わり
+         */
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             throw new ValidationError(`無効なメール形式です`);

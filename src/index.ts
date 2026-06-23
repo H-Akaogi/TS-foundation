@@ -1,27 +1,9 @@
-// prompt-syncをインポートする
-import promptSync from 'prompt-sync';
-import { ValidationError } from './chap05/ValidationError.js';
-import { User, type UserRole } from './chap05/User.js';
+import { Result } from "./chap06/Result.js";
 
-const prompt = promptSync({ sigint: true });
+// 文字列型を指定してインスタンス化
+const stringResult = new Result<string>(true, "送信成功");
+console.log(`メッセージ: ${stringResult.data} (長さ: ${stringResult.data.length})`);
 
-try {
-    const id = prompt("ユーザーIDを入力してください->");
-    const lastName = prompt("姓を入力してください->");
-    const firstName = prompt("名を入力してください->");
-    const email = prompt("メールアドレスを入力してください->");
-    const age = Number(prompt("年齢を入力してください->"));
-    const roleInput = prompt("権限を入力してください (admin/member/guest)->");
-
-    // as UserRole で型アサーションを行う
-    const user = new User(id, lastName, firstName, email, age, roleInput as UserRole);
-    console.log(user);
-
-} catch (error) // Exceptionではなくerrorという表現
-{
-    if (error instanceof ValidationError) {
-        console.error(`バリデーションエラー: ${error.message}`);
-    } else {
-        console.error(`予期せぬエラー: ${error}`);
-    }
-}
+// 数値型を指定してインスタンス化
+const numberResult = new Result<number>(true, 200);
+console.log(`ステータス: ${numberResult.data} (小数点2位: ${numberResult.data.toFixed(2)})`);
