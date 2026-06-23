@@ -5,9 +5,13 @@
 
 /**
  * 商品を表すクラス
- * プロパティはprivateにする
  */
 export class Product {
+    /**
+     * 内部保持用
+     * privateにする
+     * プロパティ名には_を付ける
+     */
     // 商品Idプロパティ
     private _id: string;
     // 商品名プロパティ
@@ -28,7 +32,7 @@ export class Product {
     }
 
     /**
-     * Getter
+     * Getter(取得用)
      */
     get id(): string {
         return this._id;
@@ -41,7 +45,7 @@ export class Product {
     }
 
     /**
-     * Setter
+     * Setter(変更用)
      */
     set id(value: string) {
         if (value.length === 0) {
@@ -64,6 +68,7 @@ export class Product {
             this._price = value;
         }
     }
+
     /**
      * 商品の詳細を表示するメソッド
      */
