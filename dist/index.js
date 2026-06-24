@@ -1,8 +1,11 @@
-import { Result } from "./chap06/Result.js";
-// 文字列型を指定してインスタンス化
-const stringResult = new Result(true, "送信成功");
-console.log(`メッセージ: ${stringResult.data} (長さ: ${stringResult.data.length})`);
-// 数値型を指定してインスタンス化
-const numberResult = new Result(true, 200);
-console.log(`ステータス: ${numberResult.data} (小数点2位: ${numberResult.data.toFixed(2)})`);
+import { Article } from "./chap06/Article.js";
+import { MediaManager } from "./chap06/MediaManager.js";
+import { Video } from "./chap06/Video.js";
+const video = new Video("TypeScript入門", 45);
+const article = new Article("ジェネリクスの極意", "山田 太郎");
+// 型推論によりPrintableインターフェイス実装を利用する
+const manager = new MediaManager();
+manager.add(video);
+manager.add(article);
+manager.showAll();
 //# sourceMappingURL=index.js.map
