@@ -1,4 +1,4 @@
-import { ValidationError } from "./chap05/ValidationError.js";
+import { ValidationError } from "../chap05/ValidationError.js";
 /**
  * 予約一覧の用意
  */
@@ -67,4 +67,4 @@ updateReservation(reservation1.id, {
 });
 console.log("更新後:", reservations);
 console.log("一覧表示用:", getReservationSummaries());
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=ReservationApp.js.map

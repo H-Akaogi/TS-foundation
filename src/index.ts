@@ -1,25 +1,84 @@
-import type { Product } from "./chap06/Product.js";
+import type {
+    ReservationData,
+    CreateReservationRequest,
+    UpdateReservationRequest,
+    ReservationSummary
+} from "./self02/ReservationTypes.js";
+import { ValidationError } from "./chap05/ValidationError.js";
 
-// 画面表示に必要な3項目だけを抽出した型を作る
-type ProductCardProps = Pick<Product, "id" | "name" | "price">;
+/**
+ * 予約一覧の用意
+ */
+const reservations: ReservationData[] = [];
 
-// 商品カードを描画する関数（Reactコンポーネントを想定）
-// 引数には、全体ではなく抽出した軽量な型を指定します
-function renderProductCard(props: ProductCardProps) {
-    console.log(`💳 [${props.id}] ${props.name} - ¥${props.price.toLocaleString()}`);
+/**
+ * 予約データの登録メソッド
+ * @param newData 登録データ
+ * @returns 
+ */
+function registerReservation(newData: CreateReservationRequest): ReservationData {
+    const newId = `R${reservations.length + 1}`;
+    const registeredData: ReservationData = {
+        id: newId,
+        ...newData
+    };
+    reservations.push(registeredData);
+    return registeredData;
 }
 
 /**
- * 商品データ
+ * 予約変更メソッド
+ * @param id 予約ID
+ * @param input IDを除く予約データ
+ * @returns 
  */
-const apiData: Product = {
-    id: "P100",
-    name: "高音質ワイヤレスイヤホン",
-    price: 15000,
-    description: "ノイズキャンセリング搭載の...",
-    stock: 50,
-    createdAt: new Date()
-};
+function updateReservation(id: string, input: UpdateReservationRequest): ReservationData {
+    const index = reservations.findIndex(x => x.id === id);
+    if (index === -1) throw new ValidationError("IDに一致する予約が見つかりません");
+    const updatedData: ReservationData = {
+        ...reservations[index]!,
+        ...input
+    }
+    reservations[index] = updatedData;
+    return updatedData;
+}
 
-// 商品情報を表示する
-renderProductCard(apiData);
+/**
+ * 一覧表示用データ取得
+ * @returns 
+ */
+function getReservationSummaries(): ReservationSummary[] {
+    return reservations.map(x => ({
+        id: x.id,
+        guestName: x.guestName,
+        status: x.status
+    }));
+}
+
+/**
+ * 動作確認用データ
+ */
+const reservation1 = registerReservation({
+    guestName: "田中 花子",
+    roomNo: "305",
+    nights: 2,
+    status: "reserved"
+});
+
+registerReservation({
+    guestName: "鈴木 太郎",
+    roomNo: "501",
+    nights: 1,
+    status: "reserved"
+});
+
+console.log("登録後:", reservations);
+
+updateReservation(reservation1.id, {
+    nights: 3,
+    status: "checkedIn"
+});
+
+console.log("更新後:", reservations);
+
+console.log("一覧表示用:", getReservationSummaries());

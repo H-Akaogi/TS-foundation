@@ -1,0 +1,1 @@
+{"version":3,"file":"ReservationManager.d.ts","sourceRoot":"","sources":["../../src/self02/ReservationManager.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAC;AAClD;;GAEG;AACH,qBAAa,kBAAkB,CAAC,CAAC,SAAS,UAAU;IAEhD,OAAO,CAAC,KAAK,CAAW;IAExB;;;OAGG;IACI,GAAG,CAAC,IAAI,EAAE,CAAC,GAAG,IAAI;IAIzB;;OAEG;IACI,OAAO,IAAI,IAAI;CAOzB"}
