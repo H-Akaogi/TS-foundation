@@ -1,12 +1,27 @@
-import { Article } from "./chap06/Article.js";
-import { MediaManager } from "./chap06/MediaManager.js";
-import { Video } from "./chap06/Video.js";
+import type { UserProfile } from "./chap06/UserProfile.js";
 
-const video = new Video("TypeScript入門", 45);
-const article = new Article("ジェネリクスの極意", "山田 太郎");
+type ProfileUpdatePayload = Partial<UserProfile>;
 
-// 型推論によりPrintableインターフェイス実装を利用する
-const manager = new MediaManager();
-manager.add(video);
-manager.add(article);
-manager.showAll();
+// 現在のプロフィール情報
+const currentState: UserProfile = {
+    id: "U001",
+    name: "田中 太郎",
+    email: "tanaka@example.com",
+    bio: "よろしくお願いします！"
+};
+// プロフィールを更新する関数
+function updateProfile(current: UserProfile, payload: ProfileUpdatePayload): UserProfile {
+    // スプレッド構文(...)を使って、現在の状態に変更分を上書きして新しいオブジェクトを返します
+    return { ...current, ...payload };
+}
+//  nameとbioだけを指定して更新関数を呼び出す
+const updatedState = updateProfile(currentState, {
+    name: "田中 一郎", // 名前を更新
+    bio: "Reactの勉強中です！" // 自己紹介を更新
+    // id や email は省略可能（Partialのおかげでエラーにならない）
+});
+
+console.log("--- 更新前 ---");
+console.log(currentState);
+console.log("--- 更新後 ---");
+console.log(updatedState);
