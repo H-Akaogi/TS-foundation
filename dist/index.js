@@ -1,24 +1,20 @@
-// 現在のプロフィール情報
-const currentState = {
-    id: "U001",
-    name: "田中 太郎",
-    email: "tanaka@example.com",
-    bio: "よろしくお願いします！"
-};
-// プロフィールを更新する関数
-function updateProfile(current, payload) {
-    // スプレッド構文(...)を使って、現在の状態に変更分を上書きして新しいオブジェクトを返します
-    return { ...current, ...payload };
+// 商品カードを描画する関数（Reactコンポーネントを想定）
+// 引数には、全体ではなく抽出した軽量な型を指定します
+function renderProductCard(props) {
+    console.log(`💳 [${props.id}] ${props.name} - ¥${props.price.toLocaleString()}`);
 }
-//  nameとbioだけを指定して更新関数を呼び出す
-const updatedState = updateProfile(currentState, {
-    name: "田中 一郎", // 名前を更新
-    bio: "Reactの勉強中です！" // 自己紹介を更新
-    // id や email は省略可能（Partialのおかげでエラーにならない）
-});
-console.log("--- 更新前 ---");
-console.log(currentState);
-console.log("--- 更新後 ---");
-console.log(updatedState);
+/**
+ * 商品データ
+ */
+const apiData = {
+    id: "P100",
+    name: "高音質ワイヤレスイヤホン",
+    price: 15000,
+    description: "ノイズキャンセリング搭載の...",
+    stock: 50,
+    createdAt: new Date()
+};
+// 商品情報を表示する
+renderProductCard(apiData);
 export {};
 //# sourceMappingURL=index.js.map
